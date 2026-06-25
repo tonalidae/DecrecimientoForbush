@@ -17,7 +17,10 @@ def divider(num, title, subtitle, n):
 slides = []
 
 # ---------- PORTADA ----------
-slides.append('<section data-background-gradient="radial-gradient(1200px 700px at 75% -10%, rgba(63,169,245,.30), transparent), linear-gradient(160deg,#0a1526,#0d1b30)">'
+slides.append(
+  '<section data-background-image="' + I['fondo'] + '" data-background-size="cover" data-background-position="center">'
+  '<div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(4,10,22,.92) 40%,rgba(4,10,22,.30) 100%);z-index:0;pointer-events:none;"></div>'
+  '<div style="position:relative;z-index:1;">'
   '<div class="reto">RETO 14 · EQUIPO 1 — DÍAS DE TORMENTA</div>'
   '<h1 class="maintitle">Muones, magnetómetros y transitorios cósmicos</h1>'
   '<p class="lead">Decrecimiento Forbush, pulsaciones geomagnéticas y modulación de rayos cósmicos durante la tormenta geomagnética del 19–21 de enero de 2026</p>'
@@ -25,9 +28,10 @@ slides.append('<section data-background-gradient="radial-gradient(1200px 700px a
   '<tr><td>Andre Jared Aguilar Ochoa</td><td>Universidad Nacional Autónoma de Honduras</td><td>Honduras</td></tr>'
   '<tr><td>Stephanie Carolina Cely Rodríguez</td><td>Universidad Nacional de Colombia</td><td>Colombia</td></tr>'
   '<tr><td>Peter Armando Perez Antaurco</td><td>Universidad Nacional de Ingeniería</td><td>Perú</td></tr>'
-  
   '</table>'
   '<p class="datebadge">Junio de 2026</p>'
+  '</div>'
+  + '<img src="' + I['logo'] + '" style="position:absolute;bottom:1.2em;left:1.5em;height:3.2em;z-index:2;border-radius:8px;">'
   + note("Buenas. Somos el Equipo 1 y defendemos la parte de DÍAS DE TORMENTA del Reto 14: el decrecimiento Forbush y la respuesta geomagnética durante la tormenta del 19 al 21 de enero de 2026. Somos seis integrantes de Honduras, Colombia, Perú, El Salvador y Guatemala. Cada uno expondrá una parte y podrá responder sobre su aporte. [REPARTO sugerido: Aguilar—problema/enfoque; Tojil—física; Perez—MuNRA; Coloma—metodología; Cely—resultados MuNRA/EZIE; Jovel—resultados globales y conclusiones.]")
   + '</section>')
 
