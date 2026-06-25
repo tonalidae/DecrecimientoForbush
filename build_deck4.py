@@ -138,6 +138,11 @@ slides.append([
  '<li>Recuperación de varios días.</li></ul></div></div>'
  + note("Tercero, la visión global. El inicio súbito hacia las 16 UT del 19 de enero; la fase principal lleva el Dst a menos 230 y el Kp por encima de 8; coincide con viento solar de más de 1000 km/s y campo interplanetario al sur, que habilita la reconexión. La recuperación dura varios días. Todo encaja con la llegada de la CME.")
  + '</section>',
+ '<section><h2>Decrecimiento Forbush en NMDB México (MXCO)</h2>'
+ + img('forbush','Fig. 17 — NMDB MXCO (% vs ref.), B_total EZIE-Mag MAGHO-1 y fases de la tormenta geomagnética. FD_mín = −16,7 %; Dst_mín = −236 nT.')
+ + '<p class="callout" style="margin-top:.5em">El SSC (~19 ene 00:00 UTC) marca compresión inicial; la <b>fase principal</b> lleva la supresión al mínimo en ≈ 10 h. La correlación cruzada NMDB-MXCO → Dst muestra \\(\\tau^*=−10\\) h: el Forbush lidera al Dst, indicando que la barrera magnética del CME precede a la perturbación de la magnetosfera interna.</p>'
+ + note("Esta es la figura 17 del informe. Muestra en el panel superior la variación porcentual del flujo de neutrones en MXCO (NMDB México, rigidez umbral 8,2 GV) junto con B_total de EZIE-Mag a 1 minuto y 1 hora. En el panel central el Dst de Kyoto. En el panel inferior la correlación cruzada con retardo: el máximo en tau negativo indica que el decrecimiento Forbush precede al mínimo del Dst, consistente con la geometría de la CME que primero modula los rayos cósmicos antes de comprimir la magnetosfera.")
+ + '</section>',
  '<section><h2>Correlaciones y retardos temporales</h2><div class="grid2">'
  + img('pearson','Fig. 22 — Matriz de correlación de Pearson entre NMDB, campo y parámetros heliosféricos.')
  + img('lags','Fig. 23 — Correlación cruzada de NMDBprom con parámetros heliosféricos en función del retardo.')
