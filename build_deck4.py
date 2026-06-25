@@ -22,7 +22,7 @@ slides.append(
   '<div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.25) 52%,transparent 72%);pointer-events:none;"></div>'
   '<div style="position:absolute;left:5%;bottom:14%;z-index:1;text-align:left;max-width:55%;">'
   '<h1 class="maintitle" style="font-weight:800;color:#fff;line-height:1.08;text-shadow:0 2px 12px rgba(0,0,0,.45);margin:0 0 0.4em 0;">'
-  'Correlación Forbush<br>&amp; Pulsaciones<br>Geomagnéticas'
+  'RETO 14: Correlación Forbush<br>&amp; Pulsaciones<br>Geomagnéticas'
   '</h1>'
   '<div style="color:#fff;font-size:.55em;line-height:1.8;text-shadow:0 1px 6px rgba(0,0,0,.5);">'
   'Andre Jared Aguilar Ochoa · Universidad Nacional Autónoma de Honduras<br>'
@@ -54,10 +54,13 @@ slides.append([
  + note("El objetivo de nuestro equipo es caracterizar el decrecimiento Forbush y la respuesta geomagnética durante la tormenta del 19 al 21 de enero de 2026. La estrategia fue multi-instrumental: cruzar rayos cósmicos, campo magnético y viento solar para ordenar la secuencia causal. La hipótesis de trabajo es que la caída de rayos cósmicos y la depresión del campo son dos caras del mismo forzamiento: la CME.")
  + '</section>',
  '<section>'
- '<div class="card accentA fragment"><h3>Forbush</h3><p>La CME barre los rayos cósmicos de menor rigidez (Magnetosheath + nube magnética) → caída del flujo 1–3 días después.</p></div>'
+ '<div class="grid2 fragment">'
+ '<div class="card accentA"><h3>Etapa 1 — Sheath del ICME</h3><p>Plasma solar comprimido y turbulento entre el <b>choque interplanetario</b> y el material eyectado. Sus campos irregulares aumentan la dispersión en ángulo de ataque (pitch-angle scattering) de los rayos cósmicos → actúa como <b>barrera difusiva</b> → <b>caída inicial rápida</b>.</p></div>'
+ '<div class="card accentA"><h3>Etapa 2 — Nube magnética</h3><p>El material eyectado porta una <b>cuerda de flujo</b> (campo fuerte y ordenado) que eleva el umbral de rigidez efectivo y suprime la difusión transversal de los rayos cósmicos → <b>depresión sostenida</b> durante el paso del ICME (12–48 h).</p></div>'
+ '</div>'
  '<p class="fragment">Tres fases: <b>SSC</b> → <b>fase principal</b> (\\(B_z<0\\), corriente anular) → <b>recuperación</b>. Intensidad por \\(D_{st}\\): extrema \\(<-200\\) nT.</p>'
- '<p class="callout fragment">Evento: CME asociada a la llamarada X1.95 · <b>Kp ≈ 8 (G4)</b> · \\(D_{st,\\text{mín}} = -236\\) nT (extrema).</p>'
- + note(" la llamarada y la CME NO son lo mismo. La llamarada X1.95 del 18 de enero es radiación: llega en minutos y afecta la ionosfera, pero no deprime el campo geomagnético. Lo que causó la tormenta fue la CME asociada, el plasma magnetizado. El decrecimiento Forbush ocurre porque esa CME —su vaina turbulenta y su nube magnética— barre los rayos cósmicos de menor rigidez. La tormenta tiene tres fases: inicio súbito, fase principal con Bz al sur que forma la corriente anular, y recuperación. Nuestro evento alcanzó Kp cercano a 8, nivel G4, y un Dst mínimo de menos 236, categoría extrema.")
+ '<p class="callout fragment"><b>CME</b> tormenta <b>Kp ≈ 8 (G4)</b> · \\(D_{st,\\text{mín}} = -236\\) nT.<br><small style="opacity:.75">'
+ + note(" l La llamarada X1.95 del 18 de enero es radiación: llega en minutos y afecta la ionosfera, pero no deprime el campo geomagnético. Lo que causó la tormenta fue la CME asociada, el plasma magnetizado. El decrecimiento Forbush ocurre en dos etapas: primero el sheath del ICME —plasma turbulento entre el choque interplanetario y el material eyectado— actúa como barrera difusiva; después, la nube magnética con su cuerda de flujo suprime la difusión transversal y sostiene la depresión. La tormenta tiene tres fases: inicio súbito, fase principal con Bz al sur que forma la corriente anular, y recuperación. Nuestro evento alcanzó Kp cercano a 8, nivel G4, y un Dst mínimo de menos 236, categoría extrema.")
  + '</section>',
 ])
 
@@ -83,6 +86,7 @@ slides.append([
  + note("Sobre el MuNRA hicimos un pipeline de calibración propio. Primero, discretizamos los eventos en intervalos de 60 segundos y corregimos por tiempo vivo, porque el detector tiene un tiempo muerto cercano al 10 % que, de no corregirse, subestimaría el flujo. Segundo, modelamos los efectos ambientales: presión y temperatura. Como en Tegucigalpa presión y temperatura están muy correlacionadas, una covarianza simple da signos erróneos; por eso usamos regresión múltiple resuelta por la regla de Cramer para desacoplar los coeficientes. Obtuvimos una tasa base de 4,39 cuentas por segundo y coeficientes barométrico y térmico negativos, que aplicamos como constantes a la serie de la tormenta.")
  + '</section>',
  '<section><h2>Metodología de correlación</h2><ul>'
+ '<li class="fragment"><b>Preprocesamiento EZIE-Mag:</b> filtro Hampel (mediana + MAD) — robusto a spikes electromagnéticos sin desplazar temporalmente los flancos de la tormenta, a diferencia de un promedio móvil.</li>'
  '<li class="fragment"><b>Sincronización</b> de instrumentos por vecino más cercano (\\(\\delta t=5\\) min); brechas como NaN, sin interpolar.</li>'
  '<li class="fragment"><b>Pearson diaria + transformada de Fisher</b> (umbral \\(|r|\\ge0{,}403\\)).</li>'
  '<li class="fragment"><b>Correlación cruzada con retardo</b> \\(\\tau^*=\\arg\\max|C_{XY}(\\tau)|\\) → adelantos/atrasos entre señales.</li>'
@@ -97,14 +101,15 @@ slides.append([
  '<section><h2>MuNRA durante la tormenta</h2><div class="grid2">'
  + img('munra_geo','MuNRA 19–26 ene: caída del flujo y vacío de adquisición.') +
  '<div><ul class="tight"><li>Caída brusca del flujo de muones con el inicio de la tormenta.</li>'
- '<li><b>Vacío de 42,68 h</b>: la caída del campo (~13:00 UTC) coincide con la desconexión serial (~13:06 UTC).</li>'
- '<li>Atribuido a saturación del búfer por corrientes inducidas por la CME.</li></ul></div></div>'
+ '<li><b>Vacío de 42,68 h</b>: la caída del campo (~13:00 UTC) coincide con la desconexión serial (~13:06 UTC). Atribuido a saturación del búfer por corrientes inducidas por la CME.</li>'
+ '<li><b>Ceros intermitentes los días 22 y 23 de enero</b>: la tasa de conteo cae a cero en múltiples ocasiones — comportamiento que persiste tras el vacío principal y cuya causa aún debe determinarse.</li>'
+ '</ul></div></div>'
  + note("Primer resultado, el MuNRA durante la tormenta. Se ve la caída del flujo de muones al iniciar el evento. Pero también un vacío de adquisición de casi 43 horas: la caída del campo magnético a las 13:00 coincide al minuto con la desconexión del detector a las 13:06. Lo atribuimos a una saturación del búfer por las corrientes que induce la CME. Es una limitación que reconocemos: con el MuNRA no pudimos cubrir el mínimo del Forbush, y por eso nos apoyamos en los neutrones.")
  + '</section>',
  '<section><h2>Acoplamiento EZIE-Mag ↔ MuNRA</h2><div class="grid2">'
  + img('corr_ezie_munra','Correlación móvil tasa de muones vs campo horizontal.')
  + img('scatter','COE vs EZIE-Mag: r = 0,968 (estaciones a ≈ 620 km).') + '</div>'
- '<p class="callout">Con ventanas de 12–24 h emerge \\(r>0{,}6\\): la recuperación del campo y la del flujo son la misma respuesta física.</p>'
+ '<p class="callout">Con ventanas de 12–24 h emerge \\(r>0{,}6\\) en la fase de recuperación: la recuperación del campo y la del flujo son la misma respuesta física.</p>'
  + note("Segundo, el acoplamiento entre el campo y los muones. Con la correlación móvil, ventanas cortas dan ruido, pero al ampliar a 12–24 horas aparece una correlación mayor que 0,6 en la recuperación: el restablecimiento del campo y el del flujo de rayos cósmicos son la misma respuesta. Y entre los dos magnetómetros, Honduras y México, la correlación es de 0,97 con desfase cero, pese a 620 km de separación: la perturbación fue coherente a gran escala.")
  + '</section>',
  '<section><h2>Evolución global de la tormenta</h2><div class="grid2">'
@@ -115,40 +120,34 @@ slides.append([
  '<li>Recuperación de varios días.</li></ul></div></div>'
  + note("Tercero, la visión global. El inicio súbito hacia las 16 UT del 19 de enero; la fase principal lleva el Dst a menos 230 y el Kp por encima de 8; coincide con viento solar de más de 1000 km/s y campo interplanetario al sur, que habilita la reconexión. La recuperación dura varios días. Todo encaja con la llegada de la CME.")
  + '</section>',
- '<section><div class="grid2">'
- + img('forbush','Dst vs NMDB-México y fases de la respuesta.') +
- '<div><table class="mini"><tr><th></th><th>MXCO</th><th>NEWK</th><th>CALG</th></tr>'
- '<tr><td>Latitud</td><td>19,3°N</td><td>40,0°N</td><td>51,1°N</td></tr>'
- '<tr><td>Profundidad</td><td>−16,7%</td><td>−20,4%</td><td>−22,2%</td></tr></table>'
- '<p style="font-size:.8em">Más profundo a mayor latitud; recuperación > 4 días.</p>'
- '<ul class="tight"><li>\\(V_{sw}\\): <b>r=−0,86</b> · \\(D_{st}\\): <b>0,83</b></li>'
- '<li>Retardos ≈ 0 h → respuesta casi simultánea.</li></ul></div></div>'
- + note("Cuarto, el Forbush en los neutrones, que sí cubren el mínimo. Las tres estaciones marcan decrecimientos bien definidos, más profundos a mayor latitud: 16,7 % en México, 20,4 en Newark, 22,2 en Calgary. ¿Qué lo controla? La matriz de correlación señala la velocidad del viento solar, menos 0,86, y el Dst, 0,83, como los factores dominantes. Y los retardos son cercanos a cero: la respuesta es casi simultánea a la perturbación interplanetaria.")
- + '</section>',
  '<section><h2>Correlaciones y retardos temporales</h2><div class="grid2">'
  + img('pearson','Fig. 22 — Matriz de correlación de Pearson entre NMDB, campo y parámetros heliosféricos.')
  + img('lags','Fig. 23 — Correlación cruzada de NMDBprom con parámetros heliosféricos en función del retardo.')
  + '</div>'
- '<ul class="tight fragment"><li>Las tres estaciones NMDB correlacionan entre sí con <b>r > 0,97</b>: respuesta global consistente.</li>'
- '<li>Factores dominantes del Forbush: \\(V_{sw}\\) (<b>r = −0,86</b>) y \\(D_{st}\\) (<b>r = 0,83</b>); \\(B_{\\text{total}}\\) (<b>r = −0,76</b>).</li>'
- '<li>\\(\\text{IMF}\\,B_z\\) débil (<b>r = −0,27</b>): dispara la reconexión pero no controla la profundidad del Forbush.</li>'
- '<li class="fragment">Retardos óptimos <b>≈ 0 h</b> en todas las variables → respuesta prácticamente simultánea a la perturbación interplanetaria.</li></ul>'
- + note("Quinto, la matriz de correlación y los retardos. Las tres estaciones NMDB se mueven juntas con r mayor a 0,97: el evento fue global y coherente. Los factores que mejor explican la profundidad del Forbush son la velocidad del viento solar, con menos 0,86, y el Dst, con 0,83; el campo interplanetario total también contribuye con menos 0,76. La componente Bz es débil, menos 0,27: su papel es disparar la reconexión, no fijar la amplitud. Y la correlación cruzada confirma retardos cercanos a cero en todas las variables: la respuesta de los rayos cósmicos es prácticamente simultánea a la llegada de la perturbación.")
+ '<div class="grid2 fragment" style="margin-top:.4em">'
+ '<table class="mini"><tr><th></th><th>MXCO</th><th>NEWK</th><th>CALG</th></tr>'
+ '<tr><td>Latitud</td><td>19,3°N</td><td>40,0°N</td><td>51,1°N</td></tr>'
+ '<tr><td>Caída FD</td><td>−16,7 %</td><td>−20,4 %</td><td>−22,2 %</td></tr></table>'
+ '<ul class="tight"><li>Factores dominantes: \\(V_{sw}\\) (<b>r=−0,86</b>), \\(D_{st}\\) (<b>0,83</b>), \\(B_{total}\\) (<b>−0,76</b>).</li>'
+ '<li>\\(\\text{IMF}\\,B_z\\) débil (<b>r=−0,27</b>): dispara reconexión, no fija profundidad.</li>'
+ '<li>\\(\\tau^*=-3\\) h en \\(V_{sw}\\to\\) NMDB (tránsito L1); \\(\\approx0\\) h en \\(B_{total}\\)/\\(D_{st}\\); \\(\\tau^*=-7\\) h en \\(B_z\\) (anticipa la tormenta).</li></ul>'
+ '</div>'
+ + note("La matriz y los retardos. Las tres NMDB se mueven juntas con r mayor a 0,97: el evento fue global y coherente. Velocidad del viento solar y Dst son los factores dominantes del Forbush; el campo interplanetario total también contribuye. La Bz es débil como predictor de profundidad porque su papel es disparar la reconexión, no fijar la amplitud. Y el gradiente latitudinal en la tabla confirma la dependencia de rigidez geomagnética: a mayor latitud, menor blindaje, mayor supresión. El τ* de menos 7 horas de Bz es el único parámetro que anticipa el evento: cuando la componente se vuelve al sur, la magnetosfera ya está abierta antes de que llegue el plasma.")
  + '</section>',
 ])
 
 # ========== 4. QUÉ ENTREGAMOS ==========
-# slides.append([
-#  divider("4 · ¿QUÉ ENTREGAMOS?","Entregables del equipo","",
-#    "Breve: qué productos entregamos."),
-#  '<section><h2>Entregables</h2><ul>'
-#  '<li class="fragment"><b>Informe científico</b> del evento de tormenta (con correcciones de física y figuras).</li>'
-#  '<li class="fragment"><b>Pipeline de calibración del MuNRA</b> en Python: tiempo vivo, corrección barométrica/térmica y serie en cuentas s⁻¹.</li>'
-#  '<li class="fragment"><b>Series sincronizadas y análisis de correlación</b> (Fisher, cruzada con retardo, móvil) entre MuNRA, EZIE-Mag, NMDB y OMNIWeb.</li>'
-#  '<li class="fragment"><b>Figuras y tablas</b>: caracterización del MuNRA, acoplamiento campo–muones, evolución de la tormenta y matriz de correlaciones.</li></ul>'
-#  + note("¿Qué entregamos? Un informe científico del evento de tormenta, ya con las correcciones de física. Un pipeline de calibración del MuNRA en Python, que convierte los eventos crudos en una serie corregida en cuentas por segundo. Las series sincronizadas y todo el análisis de correlación entre los cuatro instrumentos. Y el conjunto de figuras y tablas que sustentan los resultados.")
-#  + '</section>',
-# ])
+slides.append([
+ divider("4 · ¿QUÉ ENTREGAMOS?","Entregables del equipo","",
+   "Breve: qué productos entregamos."),
+ '<section><h2>Entregables</h2><ul>'
+ '<li class="fragment"><b>Informe </b> del evento de tormenta.</li>'
+ '<li class="fragment"><b>Pipeline de calibración del MuNRA</b> en Python: tiempo vivo, corrección barométrica/térmica y serie en cuentas s⁻¹.</li>'
+ '<li class="fragment"><b>Series sincronizadas y análisis de correlación</b> (Fisher, cruzada con retardo, móvil) entre MuNRA, EZIE-Mag, NMDB y OMNIWeb.</li>'
+ '<li class="fragment"> caracterización del MuNRA, acoplamiento campo–muones, evolución de la tormenta y matriz de correlaciones.</li></ul>'
+ + note("¿Qué entregamos? Un informe científico del evento de tormenta, ya con las correcciones de física. Un pipeline de calibración del MuNRA en Python, que convierte los eventos crudos en una serie corregida en cuentas por segundo. Las series sincronizadas y todo el análisis de correlación entre los cuatro instrumentos. Y el conjunto de figuras y tablas que sustentan los resultados.")
+ + '</section>',
+])
 
 # ========== 5. CONCLUSIONES ==========
 slides.append([
@@ -156,7 +155,7 @@ slides.append([
 
  # --- 5a. MuNRA: logros y limitaciones ---
  '<section><h2>Limitaciones del MuNRA</h2><div class="grid2"><div><ul class="tight">'
- '<li class="fragment"><b>Tasa basal estable:</b> 4,39 ± 0,29 Hz (≈ 263 muones/min) — detector calibrado y en operación.</li>'
+ '<li class="fragment"><b>Tasa basal estable:</b> 4,39 ± 0,29 cuentas s⁻¹ — detector calibrado y en operación.</li>'
  '<li class="fragment"><b>Tiempo muerto 10,07 %</b>: corrección obligatoria; sin ella el flujo se subestimaría sistemáticamente.</li>'
  '<li class="fragment"><b>Vacío de 42,68 h</b>: la caída del campo a las 13:00 UTC coincide al minuto con la desconexión serial (13:06 UTC) → saturación inducida por la CME.</li>'
  '<li class="fragment"><b>Muestra estadísticamente pequeña</b> (248 h ≈ 10 días): no es suficiente para conclusiones definitivas sobre el Forbush; se necesitan más datos.</li>'
@@ -171,9 +170,7 @@ slides.append([
  '<section><h2>Verificación con NMDB y correlaciones</h2>'
  '<div class="grid2"><div><ul class="tight">'
  '<li class="fragment"><b>Forbush en tres estaciones NMDB</b>: gradiente latitudinal claro — más profundo a mayor latitud (19°→40°→51°N).</li>'
- '<li class="fragment"><b>EZIE-Mag ↔ MuNRA</b> (ventanas 12–24 h): \\(r > 0{,}6\\) en la recuperación → campo y flujo de rayos cósmicos son respuestas acopladas a la misma CME.</li>'
- '<li class="fragment"><b>TEO–NMDB a escala de un año (2025):</b> \\(r = 0{,}497\\) — correlación moderada, significativa pero no fuerte.</li>'
- '<li class="fragment">A escala de <b>ciclo solar completo (11 años)</b> se espera una <b>anticorrelación</b>: con solo un año de datos no es posible observar ese patrón aún.</li>'
+ '<li class="fragment"><b>EZIE-Mag ↔ MuNRA</b> (ventanas 12–24 h): \\(r>0{,}6\\) en la recuperación (valor exacto e IC reportados en §4.8.3 del informe) → campo y flujo de rayos cósmicos son respuestas acopladas a la misma CME.</li>'
  '</ul></div>'
  '<div><table class="mini">'
  '<tr><th></th><th>MXCO</th><th>NEWK</th><th>CALG</th></tr>'
@@ -187,23 +184,23 @@ slides.append([
 
  # --- 5c. Retardos temporales: interpretación física ---
  '<section><h2>Retardos temporales: ¿por qué ocurren?</h2><ul>'
- '<li class="fragment"><b>Lag ≈ 0 h en \\(V_{sw}\\) y \\(D_{st}\\)</b>: la disminución de rayos cósmicos y la depresión geomagnética son <em>simultáneas</em> → la CME actúa como barrera inmediata al llegar a la Tierra.</li>'
- '<li class="fragment"><b>Lag = −7 h en \\(\\text{IMF}\\,B_z\\)</b>: \\(B_z\\) es la única variable que <em>anticipa</em> el evento — es el gatillo de la reconexión magnética que abre la magnetosfera antes de que llegue el plasma de la CME.</li>'
- '<li class="fragment"><b>Lag = 1 h en \\(B_{total}\\), 3 h en densidad</b>: reflejan la estructura secuencial interna de la CME — primero la vaina turbulenta (campo), luego la nube magnética densa.</li>'
+ '<li class="fragment"><b>\\(\\tau^*=-3\\) h en \\(V_{sw}\\to\\) NMDB</b>: el viento solar en L1 <em>anticipa</em> la caída de rayos cósmicos — reflejo del tiempo de tránsito L1→Tierra más la formación de la barrera magnética (confirmado en §3.3.6 del informe, \\(r_{máx}=-0{,}840\\)).</li>'
+ '<li class="fragment"><b>\\(\\tau^*\\approx0\\) h en \\(D_{st}\\)</b>: la depresión geomagnética y el Forbush son prácticamente <em>simultáneas</em> a resolución horaria — ambas son respuestas directas al mismo forzamiento de la CME.</li>'
+ '<li class="fragment"><b>Lag = −7 h en \\(\\text{IMF}\\,B_z\\)</b>: \\(B_z\\) es la única variable que <em>anticipa</em> el evento — gatillo de la reconexión magnética que abre la magnetosfera antes del plasma de la CME.</li>'
+ '<li class="fragment"><b>Lag ≈ 1–3 h en \\(B_{total}\\) y densidad</b>: estructura secuencial interna de la CME — primero la magnetosheath turbulenta (campo elevado), luego la nube magnética densa.</li>'
  '<li class="fragment">En conjunto, los retardos trazan la <b>cadena causal</b>: \\(B_z \\to\\) reconexión \\(\\to\\) tormenta + barrera para rayos cósmicos.</li>'
+ '<li class="fragment"><em>Limitación:</em> análisis a <b>resolución horaria</b> → puede enmascarar retardos más finos (subhorarios) relevantes durante la fase de inicio de la tormenta.</li>'
  '</ul>'
- + note("Este es uno de los resultados más ricos del análisis. Los retardos cero en velocidad del viento solar y en Dst nos dicen que la disminución de rayos cósmicos y la tormenta geomagnética ocurren juntas, sin retraso medible a resolución horaria. Pero el IMF Bz, el campo interplanetario norte-sur, anticipa el evento en 7 horas porque es el parámetro que controla la reconexión magnética: cuando Bz se vuelve al sur, la magnetosfera se abre, y eso prepara el camino para la tormenta y para la entrada de la CME. Los retardos en Btotal y densidad reflejan que la CME no es uniforme: primero llega la vaina turbulenta, con campo elevado, y después la nube magnética, más densa. Los retardos nos cuentan la secuencia interna de la estructura interplanetaria.")
+ + note("Este es uno de los resultados más ricos del análisis. El viento solar en L1 anticipa la caída del NMDB en 3 horas: ese retardo refleja el tiempo de tránsito desde el punto L1 hasta la magnetosfera terrestre más el tiempo que tarda en formarse la barrera magnética. Por eso tau es menos 3, no cero — es una cadena física, no una coincidencia. El Dst, en cambio, sí es simultáneo al Forbush a resolución horaria: ambos son respuestas directas a la misma CME, solo con mecanismos distintos. El IMF Bz anticipa el evento en 7 horas porque es el parámetro que controla la reconexión: cuando Bz se vuelve al sur la magnetosfera se abre, y eso prepara el camino antes de que llegue el plasma. Los retardos en Btotal y densidad reflejan la estructura interna de la CME: primero el sheath del ICME (plasma turbulento entre choque y material eyectado), luego la nube magnética.")
  + '</section>',
 
  # --- 5d. Red geomagnética regional ---
- '<section><h2>Red geomagnética regional</h2><div class="grid2"><div><ul class="tight">'
+ '<section><h2>Red geomagnética regional</h2><ul class="tight">'
  '<li class="fragment"><b>COE (México, 19,8°N) ↔ EZIE-Mag (Honduras, 14,1°N)</b>: \\(r = 0{,}968\\), lag \\(\\tau^*=0\\) h — coherencia a gran escala pese a 620 km de separación.</li>'
  '<li class="fragment">Desde 2026 Honduras tiene registro continuo del magnetómetro; muestra <b>mejor correlación con México que con Puerto Rico</b>.</li>'
  '<li class="fragment">Puerto Rico es una isla más influenciada por los campos magnéticos del océano y su posición geográfica introduce un comportamiento diferente.</li>'
  '<li class="fragment">El <b>campo magnético terrestre no es simétrico ni uniforme</b>: México y Honduras comparten un patrón regional similar, lo que valida usar COE como referencia continental para EZIE-Mag.</li>'
- '</ul></div>'
- + img('scatter','COE vs EZIE-Mag: r = 0,968 — coherencia regional a escala de tormenta.')
- + '</div>'
+ '</ul>'
  + note("La alta correlación entre los dos magnetómetros, México y Honduras, es un resultado importante en sí mismo. Nos dice que la perturbación geomagnética fue coherente a escala regional, no local. Y el hecho de que Honduras correlacione mejor con México que con Puerto Rico tiene una explicación física: el campo magnético terrestre no es uniforme. Puerto Rico, al ser una isla, está más influenciada por los campos magnéticos del océano, que actúan como un conductor que distorsiona la señal. México y Honduras, siendo continentales y cercanos en longitud, comparten un patrón de campo regional más similar.")
  + '</section>',
 
@@ -212,6 +209,7 @@ slides.append([
  '<div class="dlabel" style="font-size:.9em">TRABAJO A FUTURO</div>'
  '<ul style="margin-top:1.2em;font-size:.78em;line-height:1.7">'
  '<li class="fragment">Ampliar el <b>registro temporal del MuNRA</b> (ya calibrado y en operación) para obtener muestras estadísticamente significativas del Forbush.</li>'
+ '<li class="fragment"><b>Determinar por qué el conteo de muones cae a cero</b> con frecuencia (ocurrió durante la tormenta y también los días 22 y 23 de enero) — diagnóstico del búfer del detector.</li>'
  '<li class="fragment">Desplegar los <b>otros detectores MuNRA adquiridos en distintos países</b> → construir una red multi-punto y comparar decrecimientos entre sí.</li>'
  '<li class="fragment">Comparar la <b>red MuNRA con datos NMDB</b> para validar que los muones capturan los mismos decrecimientos que los neutrones.</li>'
  '<li class="fragment">Para correlaciones con <b>campo magnético</b>: enfocarse en períodos de tormenta — en días calmos la correlación es débil; el acoplamiento solo es significativo durante eventos extremos.</li>'
