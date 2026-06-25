@@ -213,5 +213,5 @@ tpl = tpl.replace('</style>',
   '.reveal table.team td{ padding:.22em .8em .22em 0; color:var(--ink); }'
   '.reveal table.team td:nth-child(2){ color:var(--muted); }'
   '.reveal table.team td:nth-child(3){ color:var(--accent); font-weight:700; }\n</style>')
-open("Presentacion_Reto14.html","w",encoding="utf-8").write(tpl.replace("__BODY__", body))
+open("index.html","w",encoding="utf-8").write(tpl.replace("__BODY__", body))
 print("ok deck4")
