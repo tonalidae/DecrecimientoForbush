@@ -45,7 +45,7 @@ slides.append(
 
 # ========== 1. FORMA DE ABORDAR EL PROBLEMA ==========
 slides.append([
- divider("1 · FORMA DE ABORDAR EL PROBLEMA","Forma de abordar el problema","","Objetivo, enfoque multi-instrumental e hipótesis de trabajo."),
+ divider("1 · FORMA DE ABORDAR EL PROBLEMA","Descripción del problema","","Objetivo, enfoque multi-instrumental e hipótesis de trabajo."),
  '<section><ul>'
  '<li class="fragment"><b>Objetivo:</b> caracterizar el <b>decrecimiento Forbush</b> y la respuesta geomagnética durante la <b>tormenta del 19–21 ene 2026</b>.</li>'
  '<li class="fragment"><b>Análisis multi-instrumental:</b> combinar análisis de rayos cósmicos (muones y neutrones), campo geomagnético y viento solar para ordenar la cadena causal del evento.</li>'
@@ -95,11 +95,12 @@ slides.append([
  '</div>'
  + note("Dedicamos un momento a MXCO porque es la estación NMDB más cercana a Honduras y la más comparable con MuNRA. Está en Ciudad Universitaria a 2274 metros sobre el nivel del mar, con una rigidez umbral de 8,2 gigavoltios. Tiene dos detectores: el supermonitor 6NM64 con seis contadores de trifluoruro de boro para la componente nucleónica, y un telescopio de muones para la componente dura. La rigidez umbral explica el gradiente latitudinal que vemos en los resultados: a mayor rigidez, mayor energía mínima detectable, menor modulación por la CME y por tanto Forbush menos profundo.")
  + '</section>',
- '<section><h2>Calibración del MuNRA</h2><div class="grid2"><div><ul class="tight">'
+ '<section><h2>Calibración del MuNRA</h2><div class="grid2">'
+ '<div><ul class="tight">'
  '<li><b>Discretización</b> en intervalos de 60 s + corrección por <b>tiempo vivo</b> (tiempo muerto ≈ 10 %).</li>'
  '<li>Modelo ambiental \\(R=\\mu_R+\\beta\\,\\Delta P+\\alpha\\,\\Delta T\\); \\(\\alpha,\\beta\\) por <b>regresión múltiple</b> (Cramer) para romper la multicolinealidad P–T.</li>'
- '<li>Resultado base: <b>4,389 ± 0,295 cuentas s⁻¹</b>.</li></ul></div>'
- '<div class="card accentA"><h3>Coeficientes</h3><p>\\(\\beta=-6{,}05\\times10^{-5}\\) (cuentas s⁻¹)/Pa<br>\\(\\alpha=-0{,}0487\\) (cuentas s⁻¹)/°C<br>Constantes, aplicados a la serie de tormenta.</p></div></div>'
+ '<li>Resultado base: <b>4,389 ± 0,295 cuentas s⁻¹</b>.</li></ul>'
+ '<div class="card accentA" style="margin-top:.5em"><h3>Coeficientes</h3><p>\\(\\beta=-6{,}05\\times10^{-5}\\) (cuentas s⁻¹)/Pa<br>\\(\\alpha=-0{,}0487\\) (cuentas s⁻¹)/°C<br>Constantes, aplicados a la serie de tormenta.</p></div></div>'
  + img('munra_cont','MuNRA — línea base estable (1–12 ene): ≈ 4,5 cuentas s⁻¹.')
  + note("Sobre el MuNRA hicimos un pipeline de calibración propio. Primero, discretizamos los eventos en intervalos de 60 segundos y corregimos por tiempo vivo, porque el detector tiene un tiempo muerto cercano al 10 % que, de no corregirse, subestimaría el flujo. Segundo, modelamos los efectos ambientales: presión y temperatura. Como en Tegucigalpa presión y temperatura están muy correlacionadas, una covarianza simple da signos erróneos; por eso usamos regresión múltiple resuelta por la regla de Cramer para desacoplar los coeficientes. Obtuvimos una tasa base de 4,39 cuentas por segundo y coeficientes barométrico y térmico negativos, que aplicamos como constantes a la serie de la tormenta.")
  + '</section>',
@@ -139,21 +140,28 @@ slides.append([
  + note("Tercero, la visión global. El inicio súbito hacia las 16 UT del 19 de enero; la fase principal lleva el Dst a menos 230 y el Kp por encima de 8; coincide con viento solar de más de 1000 km/s y campo interplanetario al sur, que habilita la reconexión. La recuperación dura varios días. Todo encaja con la llegada de la CME.")
  + '</section>',
  '<section><h2>Decrecimiento Forbush en NMDB México (MXCO)</h2>'
- + img('forbush','Fig. 17 — NMDB MXCO (% vs ref.), B_total EZIE-Mag MAGHO-1 y fases de la tormenta geomagnética. FD_mín = −16,7 %; Dst_mín = −236 nT.')
- + '<p class="callout" style="margin-top:.5em">El SSC (~19 ene 00:00 UTC) marca compresión inicial; la <b>fase principal</b> lleva la supresión al mínimo en ≈ 10 h. La correlación cruzada NMDB-MXCO → Dst muestra \\(\\tau^*=−10\\) h: el Forbush lidera al Dst, indicando que la barrera magnética del CME precede a la perturbación de la magnetosfera interna.</p>'
+ '<div class="grid2" style="align-items:start">'
+ + img('forbush','Fig. 17 — NMDB MXCO (% vs ref.) y B_total EZIE-Mag MAGHO-1.')
+ + '<div><ul class="tight">'
+ '<li><b>FD_mín = −16,7 %</b> en MXCO (rigidez 8,2 GV).</li>'
+ '<li><b>Dst_mín = −236 nT</b> (tormenta extrema G4).</li>'
+ '<li><b>SSC</b> ~19 ene 00:00 UTC → fase principal en ≈ 10 h.</li>'
+ '<li><b>B_total</b> EZIE-Mag: compresión inicial antes del mínimo del campo.</li>'
+ '<li class="callout" style="list-style:none;margin-top:.5em">El Forbush precede al Dst: la barrera magnética de la CME modula los rayos cósmicos antes de comprimir la magnetosfera interna.</li>'
+ '</ul></div></div>'
  + note("Esta es la figura 17 del informe. Muestra en el panel superior la variación porcentual del flujo de neutrones en MXCO (NMDB México, rigidez umbral 8,2 GV) junto con B_total de EZIE-Mag a 1 minuto y 1 hora. En el panel central el Dst de Kyoto. En el panel inferior la correlación cruzada con retardo: el máximo en tau negativo indica que el decrecimiento Forbush precede al mínimo del Dst, consistente con la geometría de la CME que primero modula los rayos cósmicos antes de comprimir la magnetosfera.")
  + '</section>',
  '<section><h2>Correlaciones y retardos temporales</h2><div class="grid2">'
  + img('pearson','Fig. 22 — Matriz de correlación de Pearson entre NMDB, campo y parámetros heliosféricos.')
  + img('lags','Fig. 23 — Correlación cruzada de NMDBprom con parámetros heliosféricos en función del retardo.')
  + '</div>'
- '<div class="grid2 fragment" style="margin-top:.4em">'
+ '<div class="grid2 fragment" style="margin-top:.3em;font-size:.82em">'
  '<table class="mini"><tr><th></th><th>MXCO</th><th>NEWK</th><th>CALG</th></tr>'
  '<tr><td>Latitud</td><td>19,3°N</td><td>40,0°N</td><td>51,1°N</td></tr>'
  '<tr><td>Caída FD</td><td>−16,7 %</td><td>−20,4 %</td><td>−22,2 %</td></tr></table>'
- '<ul class="tight"><li>Factores dominantes: \\(V_{sw}\\) (<b>r=−0,86</b>), \\(D_{st}\\) (<b>0,83</b>), \\(B_{total}\\) (<b>−0,76</b>).</li>'
+ '<ul class="tight" style="font-size:.9em"><li>Factores dominantes: \\(V_{sw}\\) (<b>r=−0,86</b>), \\(D_{st}\\) (<b>0,83</b>), \\(B_{total}\\) (<b>−0,76</b>).</li>'
  '<li>\\(\\text{IMF}\\,B_z\\) débil (<b>r=−0,27</b>): dispara reconexión, no fija profundidad.</li>'
- '<li>\\(\\tau^*=-3\\) h en \\(V_{sw}\\to\\) NMDB (tránsito L1); \\(\\approx0\\) h en \\(B_{total}\\)/\\(D_{st}\\); \\(\\tau^*=-7\\) h en \\(B_z\\) (anticipa la tormenta).</li></ul>'
+ '<li>\\(\\tau^*=-3\\) h \\(V_{sw}\\); \\(\\approx0\\) h \\(B_{total}\\)/\\(D_{st}\\); \\(\\tau^*=-7\\) h \\(B_z\\) (anticipa).</li></ul>'
  '</div>'
  + note("La matriz y los retardos. Las tres NMDB se mueven juntas con r mayor a 0,97: el evento fue global y coherente. Velocidad del viento solar y Dst son los factores dominantes del Forbush; el campo interplanetario total también contribuye. La Bz es débil como predictor de profundidad porque su papel es disparar la reconexión, no fijar la amplitud. Y el gradiente latitudinal en la tabla confirma la dependencia de rigidez geomagnética: a mayor latitud, menor blindaje, mayor supresión. El τ* de menos 7 horas de Bz es el único parámetro que anticipa el evento: cuando la componente se vuelve al sur, la magnetosfera ya está abierta antes de que llegue el plasma.")
  + '</section>',
