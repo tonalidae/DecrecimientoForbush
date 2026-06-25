@@ -59,8 +59,8 @@ slides.append([
  '<div class="card accentA"><h3>Etapa 2 — Nube magnética</h3><p>El material eyectado porta una <b>cuerda de flujo</b> (campo fuerte y ordenado) que eleva el umbral de rigidez efectivo y suprime la difusión transversal de los rayos cósmicos → <b>depresión sostenida</b> durante el paso del ICME (12–48 h).</p></div>'
  '</div>'
  '<p class="fragment">Tres fases: <b>SSC</b> → <b>fase principal</b> (\\(B_z<0\\), corriente anular) → <b>recuperación</b>. Intensidad por \\(D_{st}\\): extrema \\(<-200\\) nT.</p>'
- '<p class="callout fragment"><b>CME</b> tormenta <b>Kp ≈ 8 (G4)</b> · \\(D_{st,\\text{mín}} = -236\\) nT.<br><small style="opacity:.75">'
- + note(" l La llamarada X1.95 del 18 de enero es radiación: llega en minutos y afecta la ionosfera, pero no deprime el campo geomagnético. Lo que causó la tormenta fue la CME asociada, el plasma magnetizado. El decrecimiento Forbush ocurre en dos etapas: primero el sheath del ICME —plasma turbulento entre el choque interplanetario y el material eyectado— actúa como barrera difusiva; después, la nube magnética con su cuerda de flujo suprime la difusión transversal y sostiene la depresión. La tormenta tiene tres fases: inicio súbito, fase principal con Bz al sur que forma la corriente anular, y recuperación. Nuestro evento alcanzó Kp cercano a 8, nivel G4, y un Dst mínimo de menos 236, categoría extrema.")
+ '<p class="callout fragment"><b>CME</b> tormenta <b>Kp ≈ 8 (G4)</b> · \\(D_{st,\\text{mín}} = -236\\) nT.</p>'
+ + note("La llamarada X1.95 del 18 de enero es radiación: llega en minutos y afecta la ionosfera, pero no deprime el campo geomagnético. Lo que causó la tormenta fue la CME asociada, el plasma magnetizado. El decrecimiento Forbush ocurre en dos etapas: primero el sheath del ICME —plasma turbulento entre el choque interplanetario y el material eyectado— actúa como barrera difusiva; después, la nube magnética con su cuerda de flujo suprime la difusión transversal y sostiene la depresión. La tormenta tiene tres fases: inicio súbito, fase principal con Bz al sur que forma la corriente anular, y recuperación. Nuestro evento alcanzó Kp cercano a 8, nivel G4, y un Dst mínimo de menos 236, categoría extrema.")
  + '</section>',
 ])
 
@@ -76,6 +76,24 @@ slides.append([
  '<p class="callout">Períodos: P1 (9–16 ene, base) y P2 (18–23 ene, tormenta).</p></div>'
  + img('map','Cobertura geográfica: MuNRA/EZIE-Mag (14,1°N), COE-COENEO (19,8°N), NMDB MXCO (19,3°N) · NEWK (40,0°N) · CALG (51,1°N).') + '</div>'
  + note("Usamos cinco instrumentos. El detector de muones MuNRA en Tegucigalpa y los monitores de neutrones NMDB miden los rayos cósmicos. El magnetómetro EZIE-Mag en Honduras y el observatorio Coeneo en México miden el campo. Y OMNIWeb nos da el viento solar en L1. Definimos dos períodos: P1 antes de la tormenta, para la línea base, y P2 durante la tormenta. A la derecha, la línea base estable del MuNRA antes del evento.")
+ + '</section>',
+ '<section><h2>Observatorio de Rayos Cósmicos de México (MXCO)</h2>'
+ '<div class="grid2">'
+ '<div><ul class="tight">'
+ '<li><b>Ubicación:</b> Ciudad Universitaria, UNAM, Ciudad de México — 19,33°N · 99,19°O</li>'
+ '<li><b>Altitud:</b> 2 274 m s.n.m. · <b>Rigidez umbral:</b> 8,2 GV</li>'
+ '<li><b>Detector 1:</b> Supermonitor de neutrones <b>6NM64</b> — 6 contadores proporcionales de BF₃ (componente nucleónica)</li>'
+ '<li><b>Detector 2:</b> Telescopio de muones (componente dura)</li>'
+ '<li><b>Rango de energía:</b> 8,5 – 200 GeV</li>'
+ '</ul>'
+ '<p class="callout" style="margin-top:.6em">MXCO es la estación NMDB más próxima a Honduras (≈ 570 km) y la de menor latitud del análisis → referencia regional clave para comparar con MuNRA.</p>'
+ '</div>'
+ '<div class="card accentA">'
+ '<h3>¿Por qué importa la rigidez umbral?</h3>'
+ '<p>La rigidez de corte (8,2 GV en MXCO vs. ≈ 1 GV en Calgary) determina qué partículas puede registrar cada estación. Estaciones con rigidez alta ven sólo rayos cósmicos de alta energía, que son menos modulados por la CME → los Forbush son más profundos en latitudes altas (<b>CALG −22,2 %</b>) que en latitudes bajas (<b>MXCO −16,7 %</b>).</p>'
+ '</div>'
+ '</div>'
+ + note("Dedicamos un momento a MXCO porque es la estación NMDB más cercana a Honduras y la más comparable con MuNRA. Está en Ciudad Universitaria a 2274 metros sobre el nivel del mar, con una rigidez umbral de 8,2 gigavoltios. Tiene dos detectores: el supermonitor 6NM64 con seis contadores de trifluoruro de boro para la componente nucleónica, y un telescopio de muones para la componente dura. La rigidez umbral explica el gradiente latitudinal que vemos en los resultados: a mayor rigidez, mayor energía mínima detectable, menor modulación por la CME y por tanto Forbush menos profundo.")
  + '</section>',
  '<section><h2>Calibración del MuNRA</h2><div class="grid2"><div><ul class="tight">'
  '<li><b>Discretización</b> en intervalos de 60 s + corrección por <b>tiempo vivo</b> (tiempo muerto ≈ 10 %).</li>'
@@ -218,6 +236,26 @@ slides.append([
  + note("Como trabajo a futuro, lo más inmediato es seguir midiendo con el MuNRA. Está calibrado, está en operación, y cada día que registra es datos que nos acercan a una muestra estadísticamente robusta. El siguiente paso grande es armar la red con los otros detectores MuNRA que se adquirieron, desplegarlos en distintos países, y comparar los decrecimientos entre estaciones y contra los datos de NMDB. Y para las correlaciones con campo magnético, aprendimos que hay que enfocarse en períodos de tormenta: en días calmos la señal es demasiado suave para que emerja el acoplamiento.")
  + '</section>',
 ])
+
+# ========== 6. REFERENCIAS ==========
+slides.append(
+  '<section data-background-gradient="linear-gradient(135deg,#0b1f3a,#123a63)">'
+  '<h2 style="color:#fff;font-size:.9em;margin-bottom:.6em;letter-spacing:.05em;text-transform:uppercase;">Referencias principales</h2>'
+  '<div style="display:grid;grid-template-columns:1fr 1fr;gap:.45em 1.2em;font-size:.42em;line-height:1.55;color:#d4e0f0;text-align:left;">'
+  '<div><b style="color:#7eb8f7;">[1]</b> Cane, H. V. (2000). Coronal mass ejections and Forbush decreases. <em>Space Science Reviews</em>, 93(1–2):55–77.</div>'
+  '<div><b style="color:#7eb8f7;">[2]</b> Belov, A. (2008). Forbush effects and their connection with solar, interplanetary and geomagnetic phenomena. <em>Proc. IAU</em>, 4(S257):439–450.</div>'
+  '<div><b style="color:#7eb8f7;">[3]</b> Lockwood, J. A. (1971). Forbush decreases in the cosmic radiation. <em>Space Science Reviews</em>, 12(5):658–715.</div>'
+  '<div><b style="color:#7eb8f7;">[4]</b> Gonzalez, W. D. et al. (1994). What is a geomagnetic storm? <em>J. Geophys. Res.</em>, 99(A4):5771–5792.</div>'
+  '<div><b style="color:#7eb8f7;">[5]</b> Campbell, W. H. (2003). <em>Introduction to Geomagnetic Fields</em>. Cambridge University Press, 2nd ed.</div>'
+  '<div><b style="color:#7eb8f7;">[6]</b> Hampel, F. R. (1974). The influence curve and its role in robust estimation. <em>J. Amer. Stat. Assoc.</em>, 69(346):383–393.</div>'
+  '<div><b style="color:#7eb8f7;">[7]</b> Sargsyan, B. &amp; Chilingarian, A. (2026). Continued activity of cycle 25: largest in 20 years — GLE and Forbush decrease. <em>arXiv</em>:2601.19289.</div>'
+  '<div><b style="color:#7eb8f7;">[8]</b> Pandey, P. (2026). Forbush depression at Oulu in January 2026. <em>Int. J. Science and Research</em>, 15(2).</div>'
+  '<div><b style="color:#7eb8f7;">[9]</b> Yee, J.-H. et al. (2026). Status and latest results from NASA EZIE. <em>EGU General Assembly 2026</em>, EGU26-8389.</div>'
+  '<div><b style="color:#7eb8f7;">[10]</b> Pahud, D. M. et al. (2009). Ground-based Pc5 ULF wave power: solar wind speed and MLT dependence. <em>J. Atm. Sol.-Terr. Phys.</em>, 71(10–11):1082–1092.</div>'
+  '</div>'
+  + note("Estas son las referencias más relevantes. El núcleo físico del decrecimiento Forbush descansa en Cane 2000, Belov 2008 y Lockwood 1971. La definición de tormenta geomagnética en Gonzalez 1994. El sistema Sq en Campbell 2003. El filtro Hampel para el preprocesamiento en Hampel 1974. Y los dos artículos de 2026 de Sargsyan y Pandey que documentan exactamente el mismo evento de enero que analizamos.")
+  + '</section>'
+)
 
 # ---------- assemble ----------
 def render(item):
