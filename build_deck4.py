@@ -22,9 +22,9 @@ slides.append('<section data-background-gradient="radial-gradient(1200px 700px a
   '<h1 class="maintitle">Muones, magnetómetros y transitorios cósmicos</h1>'
   '<p class="lead">Decrecimiento Forbush, pulsaciones geomagnéticas y modulación de rayos cósmicos durante la tormenta geomagnética del 19–21 de enero de 2026</p>'
   '<table class="team">'
-  '<tr><td>Andre Jared Aguilar Ochoa</td><td>Honduras</td></tr>'
-  '<tr><td>Stephanie Carolina Cely Rodríguez</td><td>Colombia</td></tr>'
-  '<tr><td>Peter Armando Perez Antaurco</td><td>Perú</td></tr>'
+  '<tr><td>Andre Jared Aguilar Ochoa</td><td>Universidad Nacional Autónoma de Honduras</td><td>Honduras</td></tr>'
+  '<tr><td>Stephanie Carolina Cely Rodríguez</td><td>Universidad Nacional de Colombia</td><td>Colombia</td></tr>'
+  '<tr><td>Peter Armando Perez Antaurco</td><td>Universidad Nacional de Ingeniería</td><td>Perú</td></tr>'
   
   '</table>'
   '<p class="datebadge">Junio de 2026</p>'
@@ -112,6 +112,16 @@ slides.append([
  '<ul class="tight"><li>\\(V_{sw}\\): <b>r=−0,86</b> · \\(D_{st}\\): <b>0,83</b></li>'
  '<li>Retardos ≈ 0 h → respuesta casi simultánea.</li></ul></div></div>'
  + note("Cuarto, el Forbush en los neutrones, que sí cubren el mínimo. Las tres estaciones marcan decrecimientos bien definidos, más profundos a mayor latitud: 16,7 % en México, 20,4 en Newark, 22,2 en Calgary. ¿Qué lo controla? La matriz de correlación señala la velocidad del viento solar, menos 0,86, y el Dst, 0,83, como los factores dominantes. Y los retardos son cercanos a cero: la respuesta es casi simultánea a la perturbación interplanetaria.")
+ + '</section>',
+ '<section><h2>Correlaciones y retardos temporales</h2><div class="grid2">'
+ + img('pearson','Fig. 22 — Matriz de correlación de Pearson entre NMDB, campo y parámetros heliosféricos.')
+ + img('lags','Fig. 23 — Correlación cruzada de NMDBprom con parámetros heliosféricos en función del retardo.')
+ + '</div>'
+ '<ul class="tight fragment"><li>Las tres estaciones NMDB correlacionan entre sí con <b>r > 0,97</b>: respuesta global consistente.</li>'
+ '<li>Factores dominantes del Forbush: \\(V_{sw}\\) (<b>r = −0,86</b>) y \\(D_{st}\\) (<b>r = 0,83</b>); \\(B_{\\text{total}}\\) (<b>r = −0,76</b>).</li>'
+ '<li>\\(\\text{IMF}\\,B_z\\) débil (<b>r = −0,27</b>): dispara la reconexión pero no controla la profundidad del Forbush.</li>'
+ '<li class="fragment">Retardos óptimos <b>≈ 0 h</b> en todas las variables → respuesta prácticamente simultánea a la perturbación interplanetaria.</li></ul>'
+ + note("Quinto, la matriz de correlación y los retardos. Las tres estaciones NMDB se mueven juntas con r mayor a 0,97: el evento fue global y coherente. Los factores que mejor explican la profundidad del Forbush son la velocidad del viento solar, con menos 0,86, y el Dst, con 0,83; el campo interplanetario total también contribuye con menos 0,76. La componente Bz es débil, menos 0,27: su papel es disparar la reconexión, no fijar la amplitud. Y la correlación cruzada confirma retardos cercanos a cero en todas las variables: la respuesta de los rayos cósmicos es prácticamente simultánea a la llegada de la perturbación.")
  + '</section>',
 ])
 
