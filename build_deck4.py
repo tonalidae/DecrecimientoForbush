@@ -215,9 +215,7 @@ slides.append([
  # --- 5d. Red geomagnética regional ---
  '<section><h2>Red geomagnética regional</h2><ul class="tight">'
  '<li class="fragment"><b>COE (México, 19,8°N) ↔ EZIE-Mag (Honduras, 14,1°N)</b>: \\(r = 0{,}968\\), lag \\(\\tau^*=0\\) h — coherencia a gran escala pese a 620 km de separación.</li>'
- '<li class="fragment">Desde 2026 Honduras tiene registro continuo del magnetómetro; muestra <b>mejor correlación con México que con Puerto Rico</b>.</li>'
- '<li class="fragment">Puerto Rico es una isla más influenciada por los campos magnéticos del océano y su posición geográfica introduce un comportamiento diferente.</li>'
- '<li class="fragment">El <b>campo magnético terrestre no es simétrico ni uniforme</b>: México y Honduras comparten un patrón regional similar, lo que valida usar COE como referencia continental para EZIE-Mag.</li>'
+ '<li class="fragment">Desde 2026 Honduras tiene registro continuo del magnetómetro.</b> Muestra mejor correlación con México.</li>'
  '</ul>'
  + note("La alta correlación entre los dos magnetómetros, México y Honduras, es un resultado importante en sí mismo. Nos dice que la perturbación geomagnética fue coherente a escala regional, no local. Y el hecho de que Honduras correlacione mejor con México que con Puerto Rico tiene una explicación física: el campo magnético terrestre no es uniforme. Puerto Rico, al ser una isla, está más influenciada por los campos magnéticos del océano, que actúan como un conductor que distorsiona la señal. México y Honduras, siendo continentales y cercanos en longitud, comparten un patrón de campo regional más similar.")
  + '</section>',
