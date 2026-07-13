@@ -120,10 +120,10 @@ slides.append([
  '<section><h2>MuNRA durante la tormenta</h2><div class="grid2">'
  + img('munra_geo','MuNRA 19–26 ene: caída del flujo y vacío de adquisición.') +
  '<div><ul class="tight"><li>Caída brusca del flujo de muones con el inicio de la tormenta.</li>'
- '<li><b>Vacío de 42,68 h</b>: la caída del campo (~13:00 UTC) coincide con la desconexión serial (~13:06 UTC). Atribuido a saturación del búfer por corrientes inducidas por la CME.</li>'
+ '<li><b>Vacío de 42,68 h</b>: la caída del campo (~13:00 UTC) coincide con la desconexión serial (~13:06 UTC). Atribuido al impacto de la CME en el campo magnetico de La Tierra.</li>'
  '<li><b>Ceros intermitentes los días 22 y 23 de enero</b>: la tasa de conteo cae a cero en múltiples ocasiones — comportamiento que persiste tras el vacío principal y cuya causa aún debe determinarse.</li>'
  '</ul></div></div>'
- + note("Primer resultado, el MuNRA durante la tormenta. Se ve la caída del flujo de muones al iniciar el evento. Pero también un vacío de adquisición de casi 43 horas: la caída del campo magnético a las 13:00 coincide al minuto con la desconexión del detector a las 13:06. Lo atribuimos a una saturación del búfer por las corrientes que induce la CME. Es una limitación que reconocemos: con el MuNRA no pudimos cubrir el mínimo del Forbush, y por eso nos apoyamos en los neutrones.")
+ + note("Primer resultado, el MuNRA durante la tormenta. Se ve la caída del flujo de muones al iniciar el evento. Pero también un vacío de adquisición de casi 43 horas: la caída del campo magnético a las 13:00 coincide al minuto con la desconexión del detector a las 13:06. Lo atribuimos al impacto de la CME en el campo magnético de la Tierra. Es una limitación que reconocemos: con el MuNRA no pudimos cubrir el mínimo del Forbush, y por eso nos apoyamos en los neutrones.")
  + '</section>',
  '<section><h2>Acoplamiento EZIE-Mag ↔ MuNRA</h2><div class="grid2">'
  + img('corr_ezie_munra','Correlación móvil tasa de muones vs campo horizontal.')
@@ -188,7 +188,7 @@ slides.append([
  '<section><h2>Limitaciones del MuNRA</h2><div class="grid2"><div><ul class="tight">'
  '<li class="fragment"><b>Tasa basal estable:</b> 4,39 ± 0,29 cuentas s⁻¹ — detector calibrado y en operación.</li>'
  '<li class="fragment"><b>Tiempo muerto 10,07 %</b>: corrección obligatoria; sin ella el flujo se subestimaría sistemáticamente.</li>'
- '<li class="fragment"><b>Vacío de 42,68 h</b>: la caída del campo a las 13:00 UTC coincide al minuto con la desconexión serial (13:06 UTC) → saturación inducida por la CME.</li>'
+ '<li class="fragment"><b>Vacío de 42,68 h</b>: la caída del campo a las 13:00 UTC coincide al minuto con la desconexión serial (13:06 UTC) → atribuido al impacto de la CME en el campo magnético terrestre.</li>'
  '<li class="fragment"><b>Muestra estadísticamente pequeña</b> (248 h ≈ 10 días): no es suficiente para conclusiones definitivas sobre el Forbush; se necesitan más datos.</li>'
  '</ul></div>'
  '<div class="card accentA fragment"><h3>¿Dónde se verifica?</h3>'
