@@ -167,28 +167,15 @@ slides.append([
  + '</section>',
 ])
 
-# ========== 4. QUÉ ENTREGAMOS ==========
+# ========== 4. CONCLUSIONES ==========
 slides.append([
- divider("4 · ¿QUÉ ENTREGAMOS?","Entregables del equipo","",
-   "Breve: qué productos entregamos."),
- '<section><h2>Entregables</h2><ul>'
- '<li class="fragment"><b>Informe </b> del evento de tormenta.</li>'
- '<li class="fragment"><b>Pipeline de calibración del MuNRA</b> en Python: tiempo vivo, corrección barométrica/térmica y serie en cuentas s⁻¹.</li>'
- '<li class="fragment"><b>Series sincronizadas y análisis de correlación</b> (Fisher, cruzada con retardo, móvil) entre MuNRA, EZIE-Mag, NMDB y OMNIWeb.</li>'
- '<li class="fragment"> caracterización del MuNRA, acoplamiento campo–muones, evolución de la tormenta y matriz de correlaciones.</li></ul>'
- + note("¿Qué entregamos? Un informe científico del evento de tormenta, ya con las correcciones de física. Un pipeline de calibración del MuNRA en Python, que convierte los eventos crudos en una serie corregida en cuentas por segundo. Las series sincronizadas y todo el análisis de correlación entre los cuatro instrumentos. Y el conjunto de figuras y tablas que sustentan los resultados.")
- + '</section>',
-])
-
-# ========== 5. CONCLUSIONES ==========
-slides.append([
- divider("5 · CONCLUSIONES","Conclusiones","","Limitaciones del MuNRA, verificación con NMDB, correlaciones geomagnéticas, retardos temporales y trabajo a futuro."),
+ divider("4 · CONCLUSIONES","Conclusiones","","Limitaciones del MuNRA, verificación con NMDB, correlaciones geomagnéticas, retardos temporales y trabajo a futuro."),
 
  # --- 5a. MuNRA: logros y limitaciones ---
  '<section><h2>Limitaciones del MuNRA</h2><div class="grid2"><div><ul class="tight">'
  '<li class="fragment"><b>Tasa basal estable:</b> 4,39 ± 0,29 cuentas s⁻¹ — detector calibrado y en operación.</li>'
  '<li class="fragment"><b>Tiempo muerto 10,07 %</b>: corrección obligatoria; sin ella el flujo se subestimaría sistemáticamente.</li>'
- '<li class="fragment"><b>Vacío de 42,68 h</b>: la caída del campo a las 13:00 UTC coincide al minuto con la desconexión serial (13:06 UTC) → atribuido al impacto de la CME en el campo magnético terrestre.</li>'
+ '<li class="fragment"><b>Vacío de 42,68 h</b>: la caída del campo a las 13:00 UTC coincide con el impacto inducido por la CME en el campo magnético terrestre.</li>'
  '<li class="fragment"><b>Muestra estadísticamente pequeña</b> (248 h ≈ 10 días): no es suficiente para conclusiones definitivas sobre el Forbush; se necesitan más datos.</li>'
  '</ul></div>'
  '<div class="card accentA fragment"><h3>¿Dónde se verifica?</h3>'
@@ -250,7 +237,7 @@ slides.append([
  + '</section>',
 ])
 
-# ========== 6. REFERENCIAS ==========
+# ========== 5. REFERENCIAS ==========
 slides.append(
   '<section data-background-gradient="linear-gradient(135deg,#0b1f3a,#123a63)">'
   '<h2 style="color:#fff;font-size:.9em;margin-bottom:.6em;letter-spacing:.05em;text-transform:uppercase;">Referencias principales</h2>'
