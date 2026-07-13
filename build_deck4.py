@@ -204,7 +204,7 @@ slides.append([
  '<section><h2>Retardos temporales: ¿por qué ocurren?</h2><ul>'
  '<li class="fragment"><b>\\(\\tau^*=-3\\) h en \\(V_{sw}\\to\\) NMDB</b>: el viento solar en L1 <em>anticipa</em> la caída de rayos cósmicos — reflejo del tiempo de tránsito L1→Tierra más la formación de la barrera magnética (confirmado en §3.3.6 del informe, \\(r_{máx}=-0{,}840\\)).</li>'
  '<li class="fragment"><b>\\(\\tau^*\\approx0\\) h en \\(D_{st}\\)</b>: la depresión geomagnética y el Forbush son prácticamente <em>simultáneas</em> a resolución horaria — ambas son respuestas directas al mismo forzamiento de la CME.</li>'
- '<li class="fragment"><b>Lag = −7 h en \\(\\text{IMF}\\,B_z\\)</b>: \\(B_z\\) es la única variable que <em>anticipa</em> el evento — gatillo de la reconexión magnética que abre la magnetosfera antes del plasma de la CME.</li>'
+ '<li class="fragment"><b>Lag = −7 h en \\(\\text{IMF}\\,B_z\\)</b>: \\(B_z\\) es la única variable que <em>anticipa</em> el evento de la reconexión magnética que abre la magnetosfera antes del plasma de la CME.</li>'
  '<li class="fragment"><b>Lag ≈ 1–3 h en \\(B_{total}\\) y densidad</b>: estructura secuencial interna de la CME — primero la magnetosheath turbulenta (campo elevado), luego la nube magnética densa.</li>'
  '<li class="fragment">En conjunto, los retardos trazan la <b>cadena causal</b>: \\(B_z \\to\\) reconexión \\(\\to\\) tormenta + barrera para rayos cósmicos.</li>'
  '<li class="fragment"><em>Limitación:</em> análisis a <b>resolución horaria</b> → puede enmascarar retardos más finos (subhorarios) relevantes durante la fase de inicio de la tormenta.</li>'
